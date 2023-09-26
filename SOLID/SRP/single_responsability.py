@@ -48,7 +48,7 @@ class TelephoneDirectory:
     def update_entry(self, name, number):
         self.telephonedirectory[name] = number
 
-    def lookup_number(self, name):
+    def find_entry(self, name):
         return self.telephonedirectory[name]
 
     def save_to_file(self, file_name, location):

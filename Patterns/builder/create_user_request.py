@@ -1,7 +1,7 @@
 import requests
 
 
-class UserService:
+class RestBuilder:
 
     def __init__(self):
         self.url = 'https://catfact.ninja/fact'
@@ -27,6 +27,6 @@ class UserService:
 
 user_model = {'name': 'Toni'}
 headers = {'accept': "application/json"}
-user_service = UserService()
+user_service = RestBuilder()
 response = user_service.with_body(user_model).with_headers(headers).send_request()
 print(response.text)

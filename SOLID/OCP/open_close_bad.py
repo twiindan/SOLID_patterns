@@ -16,11 +16,12 @@ class DiscountCalculator:
 
     def get_discounted_price(self):
         if self.product_type == Products.SHIRT:
-            return self.cost - (self.cost * 0.10)
+            return self.cost - (self.cost * 0.40)
         elif self.product_type == Products.TSHIRT:
-            return self.cost - (self.cost * 0.15)
+            return self.cost - (self.cost * 0.40)
         elif self.product_type == Products.PANT:
             return self.cost - (self.cost * 0.25)
+
 
 """
 This design breaches the Open Closed principle because this class will need modification if 

@@ -13,5 +13,3 @@ class BaseWebDriverElement():
     def click(self, locator):
         """ Performs click on web element whose locator is passed to it"""
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).click()
-
-

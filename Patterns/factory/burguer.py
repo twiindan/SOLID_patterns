@@ -1,4 +1,8 @@
-class Burger(object):
+from abc import ABC, abstractmethod
+
+
+class Burger(ABC):
+    @abstractmethod
     def cook(self):
         pass
 
@@ -21,7 +25,7 @@ class FishBurger(Burger):
 # Factory Object
 class BurgerStoreFactory(object):
     @staticmethod
-    def getBurger(name):
+    def get_burguer(name):
         if name == 'Beef':
             return BeefBurgers()
         elif name == 'Chicken':
@@ -34,13 +38,13 @@ class BurgerStoreFactory(object):
 if __name__ == '__main__':
     # Create burger "Beef burger"
     b = BurgerStoreFactory()
-    burger = b.getBurger('Beef')
+    burger = b.get_burguer('Beef')
     burger.cook()
 
     # Create burger "Chicken burger"
-    burger = b.getBurger('Chicken')
+    burger = b.get_burguer('Chicken')
     burger.cook()
 
     # Create burger "Fish burger"
-    burger = b.getBurger('Fish')
+    burger = b.get_burguer('Fish')
     burger.cook()
