@@ -27,6 +27,6 @@ class RestBuilder:
 
 user_model = {'name': 'Toni'}
 headers = {'accept': "application/json"}
-user_service = RestBuilder()
-response = user_service.with_body(user_model).with_headers(headers).send_request()
+rest_service = RestBuilder()
+response = rest_service.with_body(user_model).with_headers(headers).send_request()
 print(response.text)
