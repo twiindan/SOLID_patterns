@@ -18,9 +18,9 @@ class Persistence(ABC):
 class MySql(Persistence):
 
     @staticmethod
-    def save_person(person: Person):
+    def save():
         # code to save in database
-        print(f"Person {person.name} saved in Database")
+        pass
 
 
 class ServicePerson:
@@ -28,6 +28,6 @@ class ServicePerson:
     def __init__(self, persistence: Persistence):
         self.persistence = persistence
 
-    def savePerson(self):
+    def savePerson(self, person: Person):
         self.persistence.save()
-
+        print(f"Person {person.name} saved in Database")
