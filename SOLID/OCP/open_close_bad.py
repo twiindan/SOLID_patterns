@@ -18,9 +18,10 @@ class DiscountCalculator:
         if self.product_type == Products.SHIRT:
             return self.cost - (self.cost * 0.40)
         elif self.product_type == Products.TSHIRT:
-            return self.cost - (self.cost * 0.40)
+            return self.cost - (self.cost * 0.30)
         elif self.product_type == Products.PANT:
             return self.cost - (self.cost * 0.25)
+
 
 
 """
