@@ -132,15 +132,15 @@ if __name__ == "__main__":
     ui_test = UITest("https://microblog-hwepgvgtb6hchvcf.westeurope-01.azurewebsites.net/")
     api_test = APITest("https://microblog-api.azurewebsites.net/api/tokens")
 
-    # Usar el TestRunner con diferentes tipos de pruebas
+    # We can use the TestRunner with different types of tests
     runner = TestRunner()
     runner.add_test(ui_test)
     runner.add_test(api_test)
 
-    # Ejecutar todas las pruebas
+    # Execute all the tests
     results = runner.run_all()
 
-    # Mostrar resultados
+    # Show results
     print("Test Results:")
     for i, result in enumerate(results, 1):
         print(f"\nTest {i}:")
@@ -148,7 +148,7 @@ if __name__ == "__main__":
         print(f"Message: {result.message}")
         print(f"Data: {result.data}")
 
-    # Mostrar resumen
+    # Show summary
     summary = runner.get_summary()
     print("\nTest Summary:")
     print(f"Total Tests: {summary['total_tests']}")
