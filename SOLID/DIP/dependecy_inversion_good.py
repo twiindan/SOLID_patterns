@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Person():
+class Person:
 
     def __init__(self, name, surname):
         self.name = name
@@ -11,14 +11,14 @@ class Person():
 class Persistence(ABC):
 
     @abstractmethod
-    def save(object):
+    def save(person: Person) -> None:
         pass
 
 
 class MySql(Persistence):
 
-    @staticmethod
-    def save():
+    @abstractmethod
+    def save(person: Person) -> None:
         # code to save in database
         pass
 
@@ -28,6 +28,6 @@ class ServicePerson:
     def __init__(self, persistence: Persistence):
         self.persistence = persistence
 
-    def savePerson(self, person: Person):
+    def save_person(self, person: Person):
         self.persistence.save()
         print(f"Person {person.name} saved in Database")

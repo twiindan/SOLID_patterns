@@ -1,4 +1,4 @@
-class Config():
+class Config:
 
     def __init__(self, database, user, password, host, port):
 
@@ -9,14 +9,13 @@ class Config():
         self.port = port
 
 
-class DataBaseConnection():
+class DataBaseConnection:
 
     def __init__(self, config):
         self.config = config
 
     def connect(self):
-
-        #Code to connect Database
+        # Code to connect Database
         pass
 
 

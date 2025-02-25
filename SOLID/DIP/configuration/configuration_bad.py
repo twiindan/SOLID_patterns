@@ -1,4 +1,4 @@
-class Config():
+class Config:
 
     def __init__(self, database, user, password, host, port):
 
@@ -9,7 +9,7 @@ class Config():
         self.port = port
 
 
-class DataBaseConnections():
+class DataBaseConnections:
 
     def __init__(self):
         self.config = Config('sql', 'toni', '1234', 'localhost', '4444')

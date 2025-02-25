@@ -1,4 +1,4 @@
-class Person():
+class Person:
 
     def __init__(self, name, surname):
         self.name = name
@@ -13,7 +13,7 @@ class MySQL():
         print(f"Person {person.name} saved in Database")
 
 
-class ServicePerson():
+class ServicePerson:
 
     @staticmethod
     def save_person(person):
