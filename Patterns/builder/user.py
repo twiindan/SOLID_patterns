@@ -1,5 +1,6 @@
 import random
 
+
 class BasicUser:
 
     def __init__(self, name, surname, age, country):
@@ -13,7 +14,7 @@ class BasicUser:
 user1 = BasicUser('Toni', 'Robres', 39, 'Spain')
 
 
-class User():
+class User:
 
     def __init__(self):
         self.name = None
