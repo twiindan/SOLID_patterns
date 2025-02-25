@@ -29,34 +29,35 @@ class PhoneDirectory:
     def find_entry(self, name):
         return self.phone_directory[name]
 
+
 """
 Now let’s say that there are two more requirements in the project – Persist the contents of the Telephone Directory 
 to a Database and transfer the contents of Telephone Directory to a file.
 """
 
 
-class TelephoneDirectory:
+class PhoneDirectory:
     def __init__(self):
-        self.telephonedirectory = {}
+        self.phone_directory = {}
 
     def add_entry(self, name, number):
-        self.telephonedirectory[name] = number
+        self.phone_directory[name] = number
 
     def delete_entry(self, name):
-        self.telephonedirectory.pop(name)
+        self.phone_directory.pop(name)
 
     def update_entry(self, name, number):
-        self.telephonedirectory[name] = number
+        self.phone_directory[name] = number
 
     def find_entry(self, name):
-        return self.telephonedirectory[name]
+        return self.phone_directory[name]
 
     def save_to_file(self, file_name, location):
-        # code to save the contents of telephonedirectory dictionary to the file
+        # code to save the contents of phone_directory dictionary to the file
         pass
 
     def persist_to_database(self, database_details):
-        # code to persist the contents of telephonedirectory dictionary to database
+        # code to persist the contents of phone_directory dictionary to database
         pass
 
     def __str__(self):
@@ -65,19 +66,19 @@ class TelephoneDirectory:
             ret_dct += f'{key} : {value}\n'
         return ret_dct
 
+
 """ We are broking the SRP principle because we are adding new responsabilities to the class. 
 Instead of adding this new methods or functions we can create new classes with the new responsabilities
 """
 
 
-class persist_to_database:
-  #functionality of the class
-  def __init__(self, object_to_persist):
-    pass
+class PersistDatabase:
+    # functionality of the class
+    def __init__(self, object_to_persist):
+        pass
 
 
-class save_to_file:
-  #functionality of the class
-  def __init__(self, object_to_save):
-    pass
-
+class SaveToFile:
+    # functionality of the class
+    def __init__(self, object_to_save):
+        pass
