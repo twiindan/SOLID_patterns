@@ -65,6 +65,6 @@ def test_api():
     else:
         print("❌ API Test Failed")
 
+
 # Run test
 test_api()
-
