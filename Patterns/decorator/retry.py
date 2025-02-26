@@ -32,4 +32,5 @@ def foo1():
     print('Oh no, we have exception')
     raise ValueError('Some error')
 
+
 foo1()

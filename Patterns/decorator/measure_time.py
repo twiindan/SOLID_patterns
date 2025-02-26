@@ -17,4 +17,5 @@ def suma(a, b):
     time.sleep(0.5)
     return a + b
 
+
 print(suma(10, 20))
