@@ -4,14 +4,14 @@ import sqlite3
 class QueryRepository:
 
     def __init__(self):
-        self.sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS projects (
+        self.sql_create_projects_table_query = """ CREATE TABLE IF NOT EXISTS projects (
                                             id integer PRIMARY KEY,
                                             name text NOT NULL,
                                             begin_date text,
                                             end_date text
                                         ); """
 
-        self.sql_create_tasks_table = """CREATE TABLE IF NOT EXISTS tasks (
+        self.sql_create_tasks_table_query = """CREATE TABLE IF NOT EXISTS tasks (
                                         id integer PRIMARY KEY,
                                         name text NOT NULL,
                                         priority integer,
@@ -23,10 +23,10 @@ class QueryRepository:
                                     );"""
 
     def get_create_project_table_query(self):
-        return self.sql_create_projects_table
+        return self.sql_create_projects_table_query
 
     def get_create_tasks_table(self):
-        return self.sql_create_tasks_table
+        return self.sql_create_tasks_table_query
 
 
 class DataBaseManager():
@@ -35,7 +35,7 @@ class DataBaseManager():
 
     def create_connection(self):
         try:
-            self.connection = sqlite3.connect("data.db")
+            self.connection = sqlite3.connect("../data.db")
             return self.connection
         except:
             print("error creating connection")
@@ -57,8 +57,9 @@ def main():
     database_connection = database_manager.create_connection()
     query_repository = QueryRepository()
     table_creator = TableCreation(database_connection)
-    table_creator.create_table(query_repository.sql_create_projects_table)
-    table_creator.create_table(query_repository.sql_create_tasks_table)
+    table_creator.create_table(query_repository.get_create_project_table_query())
+    table_creator.create_table(query_repository.get_create_tasks_table())
+
 
 if __name__ == '__main__':
     main()

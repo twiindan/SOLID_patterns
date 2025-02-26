@@ -1,19 +1,19 @@
 import sqlite3
 
 
-class DataBaseManager():
+class DataBaseManager:
     def __init__(self):
         self.connection = None
 
     def create_connection(self):
         try:
-            self.connection = sqlite3.connect("data.db")
+            self.connection = sqlite3.connect("../data.db")
             return self.connection
         except:
             print("error creating connection")
 
 
-class TableCreation():
+class TableCreation:
     def __init__(self):
         database_manager = DataBaseManager()
         self.db_connection = database_manager.create_connection()
