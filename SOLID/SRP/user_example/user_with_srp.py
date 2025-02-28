@@ -18,6 +18,8 @@ class PaymentMethod(Enum):
     PAYPAL = "PP"
 
 
+# APPLYING SRP: Splitting into multiple classes, each with a single responsibility
+# This class is only responsible for handling personal information
 @dataclass
 class PersonalInfo:
     first_name: str
@@ -28,21 +30,24 @@ class PersonalInfo:
     tax_id: str
     social_security_number: str
 
+    # Methods related only to personal information
     def get_full_name(self) -> str:
         return f"{self.first_name} {self.last_name}"
 
     def get_age(self) -> int:
         today = date.today()
         return today.year - self.birth_date.year - (
-                    (today.month, today.day) < (self.birth_date.month, self.birth_date.day))
+                (today.month, today.day) < (self.birth_date.month, self.birth_date.day))
 
 
+# APPLYING SRP: Class dedicated to managing contact information
 @dataclass
 class ContactInfo:
     email: str
     phone_number: str
     alternative_phone: Optional[str] = None
 
+    # Methods related only to contact information
     def mask_email(self) -> str:
         return f"{self.email[:3]}...@{self.email.split('@')[1]}"
 
@@ -50,6 +55,7 @@ class ContactInfo:
         return f"***{self.phone_number[-4:]}"
 
 
+# APPLYING SRP: Class dedicated to address handling
 @dataclass
 class Address:
     street: str
@@ -60,6 +66,7 @@ class Address:
     country: str
     apartment: Optional[str] = None
 
+    # Method related only to address formatting
     def get_full_address(self) -> str:
         address_parts = [
             self.street,
@@ -73,6 +80,7 @@ class Address:
         return ", ".join(part for part in address_parts if part)
 
 
+# APPLYING SRP: Class dedicated to credit card information
 @dataclass
 class CardInfo:
     card_number: str
@@ -81,6 +89,7 @@ class CardInfo:
     card_expiry_year: int
     card_cvv: str
 
+    # Methods related only to card operations
     def mask_card_number(self) -> str:
         return f"****-****-****-{self.card_number[-4:]}"
 
@@ -91,6 +100,7 @@ class CardInfo:
                  today.month > self.card_expiry_month))
 
 
+# APPLYING SRP: Class dedicated to bank account information
 @dataclass
 class BankInfo:
     bank_name: str
@@ -99,10 +109,12 @@ class BankInfo:
     swift_code: Optional[str] = None
     iban: Optional[str] = None
 
+    # Method related only to bank information
     def mask_account_number(self) -> str:
         return f"****{self.account_number[-4:]}"
 
 
+# APPLYING SRP: Class to handle payment-related information
 @dataclass
 class PaymentInfo:
     payment_method: PaymentMethod
@@ -110,6 +122,7 @@ class PaymentInfo:
     bank_info: Optional[BankInfo] = None
 
 
+# APPLYING SRP: Class to handle user preferences
 @dataclass
 class Preferences:
     preferred_language: str = "en"
@@ -117,39 +130,46 @@ class Preferences:
     newsletter_subscription: bool = False
 
 
+# APPLYING SRP: Main Person class now acts as a composite of the specialized classes
+# Each attribute is a well-defined object with its own responsibility
 @dataclass
 class Person:
     id: str
-    personal_info: PersonalInfo
-    contact_info: ContactInfo
-    address: Address
-    payment_info: PaymentInfo
-    preferences: Preferences
+    personal_info: PersonalInfo  # Delegating personal information responsibility
+    contact_info: ContactInfo  # Delegating contact information responsibility
+    address: Address  # Delegating address responsibility
+    payment_info: PaymentInfo  # Delegating payment information responsibility
+    preferences: Preferences  # Delegating preferences responsibility
     billing_address: Optional[Address] = None
     created_at: date = field(default_factory=date.today)
     updated_at: date = field(default_factory=date.today)
     is_active: bool = True
 
+    # This method now delegates to the appropriate objects instead of handling the logic itself
     def mask_sensitive_data(self) -> dict:
-        """Retorna una versión de los datos con información sensible enmascarada"""
+        """Returns a version of the data with sensitive information masked"""
         masked_data = {
             "id": self.id,
-            "name": self.personal_info.get_full_name(),
-            "email": self.contact_info.mask_email(),
-            "phone": self.contact_info.mask_phone(),
+            "name": self.personal_info.get_full_name(),  # Delegating to PersonalInfo
+            "email": self.contact_info.mask_email(),  # Delegating to ContactInfo
+            "phone": self.contact_info.mask_phone(),  # Delegating to ContactInfo
         }
 
         if self.payment_info.card_info:
-            masked_data["card_number"] = self.payment_info.card_info.mask_card_number()
+            masked_data["card_number"] = self.payment_info.card_info.mask_card_number()  # Delegating to CardInfo
 
         if self.payment_info.bank_info:
-            masked_data["bank_account"] = self.payment_info.bank_info.mask_account_number()
+            masked_data["bank_account"] = self.payment_info.bank_info.mask_account_number()  # Delegating to BankInfo
 
         return masked_data
 
 
-# Ejemplo de uso
+# Example to use
 if __name__ == "__main__":
+    # Note how initialization is now more organized and each component is created separately
+    # This makes the code more maintainable and easier to test
+
+    # Creating personal information component
     personal_info = PersonalInfo(
         first_name="John",
         last_name="Doe",
@@ -160,11 +180,13 @@ if __name__ == "__main__":
         social_security_number="987-65-4321"
     )
 
+    # Creating contact information component
     contact_info = ContactInfo(
         email="john.doe@example.com",
         phone_number="+1234567890"
     )
 
+    # Creating address component
     address = Address(
         street="Main Street",
         street_number="123",
@@ -174,6 +196,7 @@ if __name__ == "__main__":
         country="United States"
     )
 
+    # Creating card information component
     card_info = CardInfo(
         card_number="4111111111111111",
         card_holder_name="John Doe",
@@ -182,13 +205,16 @@ if __name__ == "__main__":
         card_cvv="123"
     )
 
+    # Creating payment information component
     payment_info = PaymentInfo(
         payment_method=PaymentMethod.CREDIT_CARD,
         card_info=card_info
     )
 
+    # Creating preferences component
     preferences = Preferences()
 
+    # Assembling the complete Person object from its components
     person = Person(
         id="P12345",
         personal_info=personal_info,
@@ -198,7 +224,19 @@ if __name__ == "__main__":
         preferences=preferences
     )
 
+    # Note how method calls are more intuitive and follow a logical path
     print(f"Full Name: {person.personal_info.get_full_name()}")
     print(f"Age: {person.personal_info.get_age()}")
     print(f"Address: {person.address.get_full_address()}")
     print(f"Masked Data: {person.mask_sensitive_data()}")
+
+"""
+With SRP:
+
+Responsibilities are split across multiple specialized classes
+Each class has a single, well-defined purpose
+Methods are located in the classes most appropriate for their functionality
+Code is more maintainable and easier to test
+Changes to one aspect (e.g., payment processing) won't affect other aspects
+Object creation is more organized and follows a clear component-based structure
+"""

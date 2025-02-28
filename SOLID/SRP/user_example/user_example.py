@@ -18,6 +18,11 @@ class PaymentMethod(Enum):
     PAYPAL = "PP"
 
 
+# VIOLATION OF SRP: This class has too many responsibilities
+# It handles personal info, contact data, addresses, payment information,
+# preferences, and various operations on all these data types.
+# A class should have only one reason to change, but this class would need
+# to change if any of these aspects change.
 @dataclass
 class Person:
     # Required Data
@@ -67,14 +72,18 @@ class Person:
     newsletter_subscription: bool = False
     is_active: bool = True
 
+    # VIOLATION OF SRP: This class contains methods that deal with different concerns
+    # Method for personal information
     def get_full_name(self) -> str:
         return f"{self.first_name} {self.last_name}"
 
+    # Method for personal information
     def get_age(self) -> int:
         today = date.today()
         return today.year - self.birth_date.year - (
                     (today.month, today.day) < (self.birth_date.month, self.birth_date.day))
 
+    # Method for address information
     def get_full_address(self) -> str:
         address_parts = [
             self.street,
@@ -87,6 +96,7 @@ class Person:
         ]
         return ", ".join(part for part in address_parts if part)
 
+    # Method for billing address information
     def get_billing_address(self) -> str:
         if not self.is_billing_address_different:
             return self.get_full_address()
@@ -102,10 +112,12 @@ class Person:
         ]
         return ", ".join(part for part in address_parts if part)
 
+    # Method for payment information
     def update_payment_method(self, new_method: PaymentMethod) -> None:
         self.payment_method = new_method
         self.updated_at = date.today()
 
+    # Method for security/privacy concerns
     def mask_sensitive_data(self) -> dict:
         return {
             "id": self.id,
@@ -119,6 +131,7 @@ class Person:
 
 # Example to use
 if __name__ == "__main__":
+    # Notice how complex the object initialization is due to having all properties in a single class
     person = Person(
         id="P12345",
         first_name="John",
@@ -139,7 +152,7 @@ if __name__ == "__main__":
         payment_method=PaymentMethod.CREDIT_CARD,
         created_at=date.today(),
         updated_at=date.today(),
-        # Campos opcionales
+        # Optional fields
         card_number="4111111111111111",
         card_expiry_month=12,
         card_expiry_year=2025,
@@ -151,3 +164,13 @@ if __name__ == "__main__":
     print(f"Age: {person.get_age()}")
     print(f"Address: {person.get_full_address()}")
     print(f"Masked Data: {person.mask_sensitive_data()}")
+
+
+"""
+Without SRP:
+
+The Person class has too many responsibilities - handling personal data, contact info, addresses, payment details, etc.
+Methods within the class deal with different concerns
+The initialization is complex and difficult to maintain
+Any change to any aspect of a person's data would require modifying this single class
+"""
