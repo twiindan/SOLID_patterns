@@ -25,5 +25,3 @@ class Configuration():
 
     def get_implicit_wait(self):
         return self.implicit_wait
-
-
