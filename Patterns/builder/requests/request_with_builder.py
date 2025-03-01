@@ -6,12 +6,7 @@ from requests import Response
 class RestBuilder:
 
     def __init__(self, url: str = 'https://catfact.ninja/fact'):
-        """
-        Initialize RestBuilder with default values
 
-        Args:
-            url (str): Target URL for the request
-        """
         self.url: str = url
         self.params: Optional[Dict[str, Any]] = None
         self.body: Optional[Dict[str, Any]] = None
@@ -52,9 +47,13 @@ class RestBuilder:
 
 # Example usage
 if __name__ == "__main__":
+    # Define request data
     user_model = {'name': 'Toni'}
     headers = {'accept': "application/json"}
 
+    # Using the Builder pattern with method chaining
+    # This approach allows for clear, step-by-step construction of the request
+    # Each method call adds one aspect of the request and returns the builder for the next method
     rest_service = RestBuilder()
     response = (
         rest_service

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d7425e59-2b4d-4cf5-9999-17f93360302f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/builder/ecommerce/ecommerce_with_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/ecommerce/ecommerce_with_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/ecommerce/ecommerce_without_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/ecommerce/ecommerce_without_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/requests/requests_without_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/requests/requests_without_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOLID/Liskov/TestBase/test_base_violation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SOLID/Liskov/TestBase/test_base_violation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOLID/OCP/reporting/reporting_with_ocp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SOLID/OCP/reporting/reporting_with_ocp.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="platform-gcc-aks-prd-we-001" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2h8HrMijt2svKHAURoEHUbPLdNI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/builder/ecommerce" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/builder/ecommerce" />
+      <recent name="$PROJECT_DIR$/../SOLID/ISP/validator_and_reporting" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dependency_inyection/database_example" />
+      <recent name="$PROJECT_DIR$/../SOLID/SRP/example" />
+      <recent name="$PROJECT_DIR$/obserbable/exercise" />
+      <recent name="$PROJECT_DIR$/builder/requests" />
+      <recent name="$PROJECT_DIR$/../SOLID/ISP/test_page" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.reporting_with_ocp">
+    <configuration name="reporting_with_ocp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="solid_patterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../SOLID/OCP/reporting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../SOLID/OCP/reporting/reporting_with_ocp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_after_pattern (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Patterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/strategy/reporting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/strategy/reporting/test_after_pattern.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_before_pattern" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Patterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/strategy/reporting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/strategy/reporting/test_before_pattern.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_after_SRP.TestLogin" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="solid_patterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../SOLID/SRP/example" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_after_SRP.TestLogin&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_after_pattern.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Patterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/command/requests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/command/requests/test_after_pattern.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_before_pattern.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Patterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/strategy/reporting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/strategy/reporting/test_before_pattern.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.reporting_with_ocp" />
+        <item itemvalue="Python tests.Python tests for test_after_SRP.TestLogin" />
+        <item itemvalue="Python.test_before_pattern" />
+        <item itemvalue="Python tests.Python tests in test_before_pattern.py" />
+        <item itemvalue="Python.test_after_pattern (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7425e59-2b4d-4cf5-9999-17f93360302f" name="Changes" comment="" />
+      <created>1716968981707</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716968981707</updated>
+      <workItem from="1716968982769" duration="17000" />
+      <workItem from="1739464765418" duration="2989000" />
+      <workItem from="1740131219156" duration="17430000" />
+      <workItem from="1740496967103" duration="18533000" />
+      <workItem from="1740676868468" duration="21182000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/builder/ecommerce/ecommerce_with_builder.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dependency_inyection/exercice/test_before_pattern.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Singleton/example/test_before_pattern.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/strategy/reporting/test_before_pattern.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SOLID/DIP/different_testing/different_testing_violation.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Patterns$refactored_liskov.coverage" NAME="refactored_liskov Coverage Results" MODIFIED="1740131864319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SOLID/Liskov/data_validator" />
+    <SUITE FILE_PATH="coverage/Patterns$create_user_request.coverage" NAME="create_user_request Coverage Results" MODIFIED="1740307757552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/builder" />
+    <SUITE FILE_PATH="coverage/Patterns$example_refactored.coverage" NAME="example_refactored Coverage Results" MODIFIED="1740501091727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SOLID/Liskov/exercise" />
+    <SUITE FILE_PATH="coverage/Patterns$one_module.coverage" NAME="one_module Coverage Results" MODIFIED="1740732755003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Singleton/configuration" />
+    <SUITE FILE_PATH="coverage/Patterns$test_after_pattern__1_.coverage" NAME="test_after_pattern (1) Coverage Results" MODIFIED="1740734193470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/strategy/reporting" />
+    <SUITE FILE_PATH="coverage/Patterns$.coverage" NAME=" Coverage Results" MODIFIED="1740738520869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SOLID/SRP/example" />
+    <SUITE FILE_PATH="coverage/Patterns$user_example.coverage" NAME="user_example Coverage Results" MODIFIED="1740498595593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SOLID/SRP/user_example" />
+    <SUITE FILE_PATH="coverage/Patterns$reporting_with_ocp.coverage" NAME="reporting_with_ocp Coverage Results" MODIFIED="1740824563645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SOLID/OCP/reporting" />
+    <SUITE FILE_PATH="coverage/Patterns$temperature_after_obserbable.coverage" NAME="temperature_after_obserbable Coverage Results" MODIFIED="1740604054079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/obserbable/temperature" />
+    <SUITE FILE_PATH="coverage/Patterns$measure_time.coverage" NAME="measure_time Coverage Results" MODIFIED="1740579527113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/decorator" />
+    <SUITE FILE_PATH="coverage/Patterns$test_after_pattern.coverage" NAME="test_after_pattern Coverage Results" MODIFIED="1740734139380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/strategy/test_data" />
+    <SUITE FILE_PATH="coverage/Patterns$database_connection.coverage" NAME="database_connection Coverage Results" MODIFIED="1740581128560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dependency_inyection" />
+    <SUITE FILE_PATH="coverage/Patterns$test_before_pattern.coverage" NAME="test_before_pattern Coverage Results" MODIFIED="1740734476226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/strategy/reporting" />
+    <SUITE FILE_PATH="coverage/Patterns$reporting.coverage" NAME="reporting Coverage Results" MODIFIED="1740498868002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SOLID/OCP/reporting" />
+    <SUITE FILE_PATH="coverage/Patterns$measure_api_performance.coverage" NAME="measure_api_performance Coverage Results" MODIFIED="1740579625366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/decorator" />
+    <SUITE FILE_PATH="coverage/Patterns$retry.coverage" NAME="retry Coverage Results" MODIFIED="1740579661426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/decorator" />
+  </component>
+</project>
