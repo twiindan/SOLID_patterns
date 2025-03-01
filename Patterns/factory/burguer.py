@@ -25,7 +25,7 @@ class FishBurger(Burger):
 # Factory Object
 class BurgerStoreFactory(object):
     @staticmethod
-    def get_burguer(name):
+    def get_burger(name):
         if name == 'Beef':
             return BeefBurgers()
         elif name == 'Chicken':
@@ -37,14 +37,14 @@ class BurgerStoreFactory(object):
 # Client Code
 if __name__ == '__main__':
     # Create burger "Beef burger"
-    b = BurgerStoreFactory()
-    burger = b.get_burguer('Beef')
+    burger_factory = BurgerStoreFactory()
+    burger = burger_factory.get_burger('Beef')
     burger.cook()
 
     # Create burger "Chicken burger"
-    burger = b.get_burguer('Chicken')
+    burger = burger_factory.get_burger('Chicken')
     burger.cook()
 
     # Create burger "Fish burger"
-    burger = b.get_burguer('Fish')
+    burger = burger_factory.get_burger('Fish')
     burger.cook()
