@@ -1,10 +1,11 @@
 import sqlite3
 import mysql.connector
 
-
+# This class directly manages database connections and queries without abstraction,
+# leading to duplicated code and making it harder to maintain.
 class TestDatabaseWithoutFactory:
     def test_sqlite_query(self):
-        # SQLite setup
+        # SQLite setup (Direct connection handling)
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
 
@@ -12,7 +13,7 @@ class TestDatabaseWithoutFactory:
         cursor.execute("SELECT name FROM users WHERE id = 1")
         result = cursor.fetchone()
 
-        # Cleanup
+        # Cleanup (Needs to be repeated in each test method)
         cursor.close()
         conn.close()
 
@@ -33,9 +34,14 @@ class TestDatabaseWithoutFactory:
         cursor.execute("SELECT name FROM users WHERE id = 1")
         result = cursor.fetchone()
 
-        # Cleanup
+        # Cleanup (Repeated again)
         cursor.close()
         conn.close()
 
         # Assertion
         assert result[0] == "John Doe"
+
+# The issue with this approach:
+# - The connection logic is duplicated for each database type.
+# - If a new database is introduced, every method must be modified.
+# - Violates the DRY (Don't Repeat Yourself) principle.
