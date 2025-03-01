@@ -1,6 +1,11 @@
 # After applying ISP
 # Separated interfaces for different database types and messaging services
 
+# SOLUTION: The Interface Segregation Principle has been applied by breaking down
+# the large interface into smaller, more focused interfaces.
+# Each class below represents a specific capability that clients can choose to implement.
+
+# Interface for MySQL-specific operations
 class MySQLActions:
     def query_mysql(self, sql):
         """Execute MySQL query"""
@@ -11,6 +16,7 @@ class MySQLActions:
         pass
 
 
+# Interface for MongoDB-specific operations
 class MongoDBActions:
     def query_mongodb(self, collection, query):
         """Execute MongoDB query"""
@@ -21,6 +27,7 @@ class MongoDBActions:
         pass
 
 
+# Interface for Redis-specific operations
 class RedisActions:
     def query_redis(self, key):
         """Get Redis value"""
@@ -31,6 +38,7 @@ class RedisActions:
         pass
 
 
+# Interface for Kafka messaging operations
 class KafkaActions:
     def send_to_kafka(self, topic, message):
         """Send message to Kafka topic"""
@@ -41,6 +49,7 @@ class KafkaActions:
         pass
 
 
+# Interface for RabbitMQ messaging operations
 class RabbitMQActions:
     def send_to_rabbitmq(self, queue, message):
         """Send message to RabbitMQ queue"""
@@ -51,7 +60,8 @@ class RabbitMQActions:
         pass
 
 
-# Clean implementation for user tests that only need MySQL
+# BENEFIT: This test class only implements the MySQL interface it needs
+# No unnecessary dependencies on other database or messaging systems
 class UserDataTest(MySQLActions):
     def test_user_creation(self):
         self.query_mysql("INSERT INTO users (name) VALUES ('John')")
@@ -59,7 +69,8 @@ class UserDataTest(MySQLActions):
         self.verify_mysql_result(result)
 
 
-# Test that needs both MongoDB and Redis
+# BENEFIT: Multiple inheritance allows composition of only the needed interfaces
+# This class needs both MongoDB and Redis capabilities, but nothing else
 class CacheTest(MongoDBActions, RedisActions):
     def test_cache_sync(self):
         # Get data from MongoDB
@@ -73,7 +84,8 @@ class CacheTest(MongoDBActions, RedisActions):
             self.set_redis_value("product:123", data)
 
 
-# Complex test that needs database and messaging
+# BENEFIT: Complex test that needs specific interfaces can mix and match
+# precisely what it needs, no more and no less
 class OrderProcessingTest(MySQLActions, KafkaActions, RabbitMQActions):
     def test_order_flow(self):
         # Create order in MySQL
@@ -90,7 +102,8 @@ class OrderProcessingTest(MySQLActions, KafkaActions, RabbitMQActions):
         self.verify_mysql_result(result)
 
 
-# Test class for monitoring that needs multiple messaging systems
+# BENEFIT: A class that only needs messaging interfaces doesn't need
+# to implement any database methods
 class MessageMonitorTest(KafkaActions, RabbitMQActions):
     def test_message_flow(self):
         # Send test message to Kafka
