@@ -13,7 +13,7 @@ class TestBase:
     def run_test(self) -> bool:
         # This method indicates a contract: no parameters, returns bool
         # But the subclasses will violate this contract
-        raise NotImplementedError()
+        pass
 
 
 class FrontendTest(TestBase):

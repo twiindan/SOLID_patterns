@@ -4,7 +4,7 @@ from typing import List, Dict
 
 # APPLYING OCP: A structured data class for test results
 class TestResult:
-    def __init__(self, name: str, passed: bool, execution_time: float = 0.0):
+    def __init__(self, name: str, passed: bool):
         self.name = name
         self.passed = passed
 
@@ -126,9 +126,9 @@ class TestReportingSystem:
 if __name__ == "__main__":
     # Test data
     test_results = [
-        TestResult("Login Test", True, 1.5),
-        TestResult("Data Validation", True, 0.8),
-        TestResult("Logout Test", False, 0.3)
+        TestResult("Login Test", True),
+        TestResult("Data Validation", True),
+        TestResult("Logout Test", False)
     ]
 
     # APPLYING OCP: Create different report generators without modifying existing code
