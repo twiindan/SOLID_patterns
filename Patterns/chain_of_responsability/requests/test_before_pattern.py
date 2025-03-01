@@ -2,17 +2,24 @@ import requests
 
 
 def test_api_without_pattern():
-    # Realizar la petición a la API
+    # Make API request to an external service
     response = requests.get("https://jsonplaceholder.typicode.com/users/1")
 
-    # Validar código de estado
+    # PROBLEM: Sequential validation approach with many early returns
+    # This implementation suffers from:
+    # 1. Poor maintainability - Each new validation requires modifying this function
+    # 2. Low reusability - Validation logic cannot be easily reused in other tests
+    # 3. Fixed execution order - Validations always run in the same sequence
+    # 4. Rigid error handling - Each validation immediately stops the process
+
+    # Validation 1: Check if status code is 200 (OK)
     if response.status_code != 200:
         print(f"❌ Invalid status code: {response.status_code}")
         print("❌ API Test Failed")
         return
     print("✅ Status code is valid")
 
-    # Validar que la respuesta sea JSON válido
+    # Validation 2: Ensure response can be parsed as valid JSON
     try:
         data = response.json()
         print("✅ Response is valid JSON")
@@ -21,7 +28,7 @@ def test_api_without_pattern():
         print("❌ API Test Failed")
         return
 
-    # Validar campos requeridos
+    # Validation 3: Verify all required fields exist in the JSON response
     required_fields = ["id", "name", "email"]
     for field in required_fields:
         if field not in data:
@@ -30,9 +37,9 @@ def test_api_without_pattern():
             return
     print("✅ All required fields are present")
 
-    # Si todas las validaciones pasan, la prueba es exitosa
+    # If all validations pass, report success and show response data
     print("🎉 API Test Passed:", data)
 
 
-# Ejecutar prueba
+# Run test
 test_api_without_pattern()
