@@ -15,7 +15,7 @@ class BasicUser:
 
 
 # Example of creating a user with the traditional approach
-user1 = BasicUser('Toni', 'Robres', 39, 'Spain')
+user1 = BasicUser('Toni', 'Robres', 41, 'Spain')
 
 
 # Implementation of the Builder pattern for creating users
