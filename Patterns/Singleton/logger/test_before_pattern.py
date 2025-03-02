@@ -3,9 +3,12 @@ import logging
 
 
 def setup_database():
+    # Creates a new database connection each time it's called
+    # This is inefficient as connections are expensive resources
     conn = sqlite3.connect('test.db')
     cursor = conn.cursor()
 
+    # Create tables if they don't exist
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,20 +25,24 @@ def setup_database():
         )
     """)
 
+    # Commit changes and close connection
+    # After this function returns, the connection is lost
     conn.commit()
     conn.close()
 
 
 class UserTests:
     def __init__(self):
-        # Creates new logger for each test class
+        # PROBLEM: Creates new logger for each test class instance
+        # This causes duplicate log handlers and repeated log entries
         self.logger = logging.getLogger('test_logger')
         self.logger.setLevel(logging.INFO)
         handler = logging.FileHandler('test.log')
-        self.logger.addHandler(handler)
+        self.logger.addHandler(handler)  # Logger handlers accumulate with each instance
 
     def test_create_user(self):
-        # Creates another connection
+        # PROBLEM: Creates another connection for each test
+        # No connection reuse or management
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)",
@@ -43,7 +50,8 @@ class UserTests:
         conn.commit()
 
     def test_get_user(self):
-        # Yet another connection
+        # PROBLEM: Yet another connection created
+        # Resource-intensive and lacks connection management
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users WHERE name = ?", ("John Doe",))
@@ -52,14 +60,16 @@ class UserTests:
 
 class ProductTests:
     def __init__(self):
-        # Another separate logger instance
+        # PROBLEM: Another separate logger instance
+        # Creates duplicate handlers again
         self.logger = logging.getLogger('test_logger')
         self.logger.setLevel(logging.INFO)
         handler = logging.FileHandler('test.log')
-        self.logger.addHandler(handler)
+        self.logger.addHandler(handler)  # More handler duplication
 
     def test_add_product(self):
-        # Another separate DB connection
+        # PROBLEM: Another separate DB connection
+        # No reuse of existing connections
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO products (name, price) VALUES (?, ?)",
@@ -67,6 +77,8 @@ class ProductTests:
         conn.commit()
 
 
+# Main execution
+# Multiple connections are created and never properly closed
 setup_database()
 user_test = UserTests()
 user_test.test_create_user()

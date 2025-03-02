@@ -4,24 +4,30 @@ import sqlite3
 
 
 class DatabaseManager:
-    _instance = None
-    _connection = None
+    # Class variables shared by all instances
+    _instance = None  # Will store the singleton instance
+    _connection = None  # Will store the database connection
 
     def __new__(cls):
+        # SINGLETON PATTERN: This method controls instance creation
+        # If an instance doesn't exist, create it. Otherwise, return existing instance
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
 
     @property
     def connection(self):
-        # Lazy initialization of database connection
+        # LAZY INITIALIZATION: Only create the connection when first needed
+        # This saves resources if the connection isn't used
         if self._connection is None:
             self._connection = sqlite3.connect('test.db')
-            self._connection.row_factory = sqlite3.Row
+            self._connection.row_factory = sqlite3.Row  # Returns rows as dict-like objects
             self.setup_database()
         return self._connection
 
     def execute_query(self, query, params=None):
+        # Centralized query execution method
+        # Allows for consistent error handling and connection management
         cursor = self.connection.cursor()
         if params:
             cursor.execute(query, params)
@@ -30,11 +36,14 @@ class DatabaseManager:
         return cursor
 
     def close(self):
+        # Proper resource cleanup
         if self._connection:
             self._connection.close()
             self._connection = None
 
     def setup_database(self):
+        # Now part of the DatabaseManager class
+        # Only runs once when the connection is first established
         cursor = self._connection.cursor()
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS users (
@@ -54,22 +63,25 @@ class DatabaseManager:
 
 
 class TestLogger:
+    # Another Singleton implementation for logger
     _instance = None
     _logger = None
 
     def __new__(cls):
+        # SINGLETON PATTERN: Ensures only one TestLogger instance exists
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
 
     @property
     def logger(self):
-        # Lazy initialization of logger
+        # LAZY INITIALIZATION: Only create logger when needed
         if self._logger is None:
             self._logger = logging.getLogger('test_logger')
             self._logger.setLevel(logging.INFO)
 
             # Add file handler if not exists
+            # Prevents duplicate handlers by checking first
             if not self._logger.handlers:
                 handler = logging.FileHandler('test.log')
                 formatter = logging.Formatter(
@@ -82,15 +94,20 @@ class TestLogger:
 
 
 class TestBase:
+    # Base class for all test classes
+    # Provides common functionality and access to shared resources
     def __init__(self):
+        # Use singleton instances for both database and logger
         self.db = DatabaseManager()
         self.logger = TestLogger().logger
 
     def teardown(self):
+        # Common cleanup method
         self.db.connection.commit()
 
 
 class UserTests(TestBase):
+    # Inherits from TestBase to get access to db and logger
     def test_create_user(self):
         try:
             user_data = {
@@ -98,6 +115,7 @@ class UserTests(TestBase):
                 "email": "john@example.com"
             }
 
+            # Uses the centralized execute_query method
             self.db.execute_query(
                 "INSERT INTO users (name, email) VALUES (?, ?)",
                 (user_data["name"], user_data["email"])
@@ -112,6 +130,7 @@ class UserTests(TestBase):
 
     def test_get_user(self, name):
         try:
+            # Reuses the same database connection
             cursor = self.db.execute_query(
                 "SELECT * FROM users WHERE name = ?",
                 (name,)
@@ -131,6 +150,7 @@ class UserTests(TestBase):
 
 
 class ProductTests(TestBase):
+    # Also inherits from TestBase
     def test_add_product(self):
         try:
             product_data = {
@@ -138,6 +158,7 @@ class ProductTests(TestBase):
                 "price": 99.99
             }
 
+            # Reuses the same database connection
             self.db.execute_query(
                 "INSERT INTO products (name, price) VALUES (?, ?)",
                 (product_data["name"], product_data["price"])
@@ -165,6 +186,7 @@ def run_tests():
     product_tests.teardown()
 
     # Clean up database connection at the end
+    # Only one connection to close, regardless of how many tests ran
     DatabaseManager().close()
 
 
