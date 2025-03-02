@@ -5,10 +5,13 @@ class UserPermissionTest:
     """Test class with hardcoded logic for different environments"""
 
     def __init__(self, environment):
+        # The environment is just a string identifier
         self.environment = environment
 
     def get_test_data(self):
-        # Complex conditional logic to handle different environments
+        # This method contains all the logic for different environments
+        # The conditional logic makes it hard to maintain and extend
+        # PROBLEM: Adding a new environment requires modifying this method
         if self.environment == "prod":
             # Real API call with limited test data
             response = requests.get("https://api.example.com/test-data")
@@ -31,12 +34,15 @@ class UserPermissionTest:
                 ]
             }
         else:
+            # Error handling for unknown environments
             raise ValueError(f"Unknown environment: {self.environment}")
 
     def test_user_permissions(self):
         # Get test data using environment-specific logic
+        # This method is coupled to the get_test_data implementation
         test_data = self.get_test_data()
 
+        # Process the test data
         for user in test_data["users"]:
             if user["role"] == "admin":
                 print(f"Testing admin permissions for {user['name']}")
@@ -46,6 +52,7 @@ class UserPermissionTest:
 
 # Usage example
 def run_tests(environment):
+    # Create test with selected environment
     test = UserPermissionTest(environment)
     test.test_user_permissions()
 
