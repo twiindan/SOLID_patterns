@@ -30,7 +30,7 @@ def measure_time(function):
 # Apply the measure_time decorator to the suma function
 # This is equivalent to: suma = measure_time(suma)
 @measure_time
-def suma(a, b):
+def addition(a, b):
     # This function deliberately waits 0.5 seconds to demonstrate
     # the time measurement functionality
     import time
@@ -40,4 +40,4 @@ def suma(a, b):
 
 # Call the decorated function
 # The decorator will measure and print the execution time
-print(suma(10, 20))
+print(addition(10, 20))

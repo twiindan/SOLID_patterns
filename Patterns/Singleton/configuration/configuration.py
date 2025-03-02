@@ -1,7 +1,7 @@
 import json
 
 
-class Configuration():
+class Configuration:
 
     _instance = None
     browser = None
