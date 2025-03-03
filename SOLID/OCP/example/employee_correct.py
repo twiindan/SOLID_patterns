@@ -41,7 +41,7 @@ class JuniorDeveloper(Employee):
     def calculate_payroll(self, fix_payroll):
         # Implementation specific to JuniorDeveloper
         # Note: There's a bug here - using comma instead of decimal point
-        return fix_payroll * 1, 10  # This should be 1.10
+        return fix_payroll * 1.10
 
     def get_benefits(self):
         # Benefits specific to JuniorDeveloper

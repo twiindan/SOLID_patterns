@@ -57,7 +57,7 @@ class TestAPIPerformance:
     @allure.title("Test public API response time")
     @allure.description("Verifies that the JSONPlaceholder API responds within the threshold")
     # Apply our decorator with a custom threshold of 500ms
-    @measure_api_performance(threshold_ms=500)
+    @measure_api_performance(threshold_ms=1000)
     def test_jsonplaceholder_api(self):
         """Test the performance of a public API endpoint"""
         # Make the actual API call

@@ -60,3 +60,4 @@ def run_tests(environment):
 # Running tests in different environments
 run_tests("local")  # Uses minimal test data
 run_tests("staging")  # Uses full mock data
+

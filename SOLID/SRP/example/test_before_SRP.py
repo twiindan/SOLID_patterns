@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 # 2. Handling UI interactions
 # 3. Making API calls
 # 4. Performing test assertions
-class TestLoginPage:
+class TestLogin:
     def __init__(self):
         # WebDriver setup mixed with application URL configuration
         self.driver = webdriver.Chrome()
@@ -46,7 +46,7 @@ class TestLoginPage:
 
 # VIOLATION OF SRP: Test initialization and execution are mixed
 # No proper test lifecycle management (setup and teardown)
-test_login_page = TestLoginPage()
+test_login_page = TestLogin()
 test_login_page.test_incorrect_login_flow()
 
 

@@ -1,61 +1,30 @@
 from playwright.sync_api import sync_playwright
 
+# This file demonstrates code WITHOUT using the Observer pattern
+# It shows a simple, procedural approach to browser automation
 
-# Observer class - implements the Observer pattern
-# This class is responsible for monitoring events from the page (the "Subject")
-class EventObserver:
-    def __init__(self, page):
-        self.page = page  # The page is the "Subject" being observed
-        self.attach_listeners()  # Register as an observer for various events
-
-    # Method to register this observer for different events on the page
-    def attach_listeners(self):
-        # Subscribe to various events from the page
-        # When these events occur, the corresponding methods will be called
-        self.page.on("request", self.on_request)     # Listen for network requests
-        self.page.on("response", self.on_response)   # Listen for network responses
-        self.page.on("pageerror", self.on_error)     # Listen for JavaScript errors
-
-    # Event handler for request events
-    # Static method because it doesn't need access to instance variables
-    @staticmethod
-    def on_request(request):
-        print(f"➡️ Request: {request.method} {request.url}")
-
-    # Event handler for response events
-    @staticmethod
-    def on_response(response):
-        print(f"✅ Response: {response.status} {response.url}")
-
-    # Event handler for error events
-    @staticmethod
-    def on_error(error):
-        print(f"❌ ERROR: {error}")
-
-
-# Playwright test using observer pattern
 with sync_playwright() as p:
-    # Initialize browser and page (these are the "Subjects" in Observer pattern)
+    # Initialize the browser and create a new page
     browser = p.chromium.launch(headless=False)
     page = browser.new_page()
 
-    # Attach observer to monitor page events
-    # This creates clear separation between the core functionality and the monitoring
-    observer = EventObserver(page)
+    # Logging manually - this is a primitive form of "observation"
+    # The code directly mixes logging with the actual browser operations
+    print("Navigating to https://example.com")
+    page.goto("https://example.com")
 
-    # Core functionality - navigate to website
-    # Note how there's no logging code here - the observer handles that automatically
-    page.goto("https://microblog-hwepgvgtb6hchvcf.westeurope-01.azurewebsites.net")
-
-    # Perform actions - observers will automatically track events
+    # Again, logging is hardcoded into the main execution flow
+    # This approach tightly couples the logging with the browser actions
+    print("Clicking the submit button")
     page.click("#submit")
 
-    # Close browser
+    # No separation of concerns - logging and browser automation are mixed together
+    # This makes it difficult to modify the logging behavior without changing the core functionality
+    print("Closing browser")
     browser.close()
 
-    # BENEFITS OF THIS APPROACH:
-    # 1. Clear separation between the core functionality and monitoring/logging
-    # 2. Can add new observers or modify existing ones without changing core code
-    # 3. Easy to enable/disable certain types of monitoring
-    # 4. Can have multiple observers for different purposes (logging, analytics, etc.)
-    # 5. The page (Subject) doesn't need to know details about its observers
+    # PROBLEMS WITH THIS APPROACH:
+    # 1. No separation between core functionality and monitoring/logging
+    # 2. To add new types of events to monitor, we would need to modify the main code
+    # 3. No way to enable/disable certain types of monitoring without code changes
+    # 4. Difficult to extend with new monitoring capabilities

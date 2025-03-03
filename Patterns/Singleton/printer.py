@@ -46,8 +46,8 @@ class Employee:
 
 # Creating multiple Employee instances (not singletons)
 employee1 = Employee('Toni', 'Robres')
-employee2 = Employee('Juan', 'Barrero')
-employee3 = Employee('Agapito', 'Iglesias')
+employee2 = Employee('Han', 'Solo')
+employee3 = Employee('Luke', 'Skywalker')
 
 # Each employee uses the same printer instance behind the scenes
 employee1.print(3)    # Adds 3 to the shared counter
